@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xadrex-Console", "Xadrex-Console.csproj", "{316B0DE1-8E16-4A42-9D92-ADBA50DC0553}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{316B0DE1-8E16-4A42-9D92-ADBA50DC0553}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{316B0DE1-8E16-4A42-9D92-ADBA50DC0553}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{316B0DE1-8E16-4A42-9D92-ADBA50DC0553}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{316B0DE1-8E16-4A42-9D92-ADBA50DC0553}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AC6071C3-D8A7-4652-B0A4-9F0782D986CE}
+	EndGlobalSection
+EndGlobal
