@@ -24,11 +24,13 @@ namespace tabuleiro
         {
             return pecas[pos.linha, pos.coluna];
         }
+
         public bool existePeca(Posicao pos)
         {
             validarPosicao(pos);
             return peca(pos) != null;
         }
+
         public void colocarPeca(Peca p, Posicao pos)
         {
             if (existePeca(pos))
@@ -52,7 +54,7 @@ namespace tabuleiro
         {
             if (!posicaoValida(pos))
             {
-                throw new TabuleiroException("Posiç~]ao inválida!!");
+                throw new TabuleiroException("Posição inválida!!");
             }
         }
     }
