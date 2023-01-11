@@ -52,6 +52,7 @@ namespace xadrez
             }
             tab.colocarPeca(p, origem);
         }
+
         public void realizaJogada(Posicao origem, Posicao destino)
         {
             Peca pecaCapturada = executaMovimento(origem, destino);
@@ -59,7 +60,7 @@ namespace xadrez
             if (estaEmXeque(jogadorAtual))
             {
                 desfazMovimento(origem, destino, pecaCapturada);
-                throw new TabuleiroException("Voce está em xeque");
+                throw new TabuleiroException("Voce não pode se colocar em em xeque");
             }
 
             if (estaEmXeque(adversaria(jogadorAtual)))
@@ -68,11 +69,17 @@ namespace xadrez
             }
             else
             {
-                xeque= false;
+                xeque = false;
             }
-
-            turno = turno + 1;
-            mudaJogador();
+            if (testeXequeMate(adversaria(jogadorAtual)))
+            {
+                terminada = true;
+            }
+            else
+            {
+                turno = turno + 1;
+                mudaJogador();
+            }
         }
 
         public void validarPosicaoDeOrigem(Posicao pos)
@@ -178,6 +185,37 @@ namespace xadrez
                 }
             }
             return false;
+        }
+
+        public bool testeXequeMate(Cor cor)
+        {
+            if (!estaEmXeque(cor))
+            {
+                return false;
+            }
+            foreach(Peca x in pecasEmJogo(cor))
+            {
+                bool[,] mat = x.movimentosPossiveis();
+                for(int i =0; i<tab.linhas; i++)
+                {
+                    for(int j = 0; j<tab.colunas; j++)
+                    {
+                        if (mat[i, j])
+                        {
+                            Posicao destino = new Posicao(i, j);
+                            Peca pecaCapturada = executaMovimento(x.posicao, destino );
+                            bool testeXeque = estaEmXeque(cor);
+                            desfazMovimento(x.posicao, destino, pecaCapturada);
+                            if (!testeXeque)
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+            return true;
+
         }
 
         public void colocarNovaPeca(char coluna, int linha, Peca peca)
